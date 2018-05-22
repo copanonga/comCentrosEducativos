@@ -10,7 +10,7 @@ $ruta_controler = JPATH_COMPONENT . DS . 'controller.php';
 
 echo "<h1>Centros educativos</h1>";
 
-if (JRequest::getVar( 'traza') == "SI") {
+if (JRequest::getVar( 'DEBUG') == "SI") {
     
     echo "Ruta: " . JURI::current() . "\n";
     
