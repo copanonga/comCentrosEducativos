@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="3.8" method="install">
+	<name>com_centroseducativos</name>
+	<creationDate>2018/05/22</creationDate>
+	<author>Jose</author>
+	<version>0.0.1</version>
+	<description>Ejemplo de componente para registro de centros educativos</description>
+
+	<files folder="site">
+		<filename>controller.php</filename>
+		<filename>centroseducativos.php</filename>
+		<folder>views</folder>
+	</files>
+
+	<administration>
+		<menu link="option=com_centroseducativos">Centros Educativos</menu>
+                <files folder="admin">
+			<filename>centroseducativos.php</filename>
+		</files>
+	</administration>
+</extension>
