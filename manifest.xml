@@ -15,7 +15,9 @@
 	<administration>
 		<menu link="option=com_centroseducativos">Centros Educativos</menu>
                 <files folder="admin">
-			<filename>centroseducativos.php</filename>
+                    <filename>controller.php</filename>
+                    <filename>centroseducativos.php</filename>
+                    <folder>views</folder>
 		</files>
 	</administration>
 </extension>
