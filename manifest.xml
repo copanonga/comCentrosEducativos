@@ -11,12 +11,26 @@
 		<filename>centroseducativos.php</filename>
 		<folder>views</folder>
 	</files>
+        
+        <install>
+		<sql>
+			<file charset="utf8" driver="mysql">install.sql</file>
+		</sql>
+	</install>
+	
+	<uninstall>
+		<sql>
+			<file charset="utf8" driver="mysql">uninstall.sql</file>
+		</sql>
+	</uninstall>
 
 	<administration>
 		<menu link="option=com_centroseducativos">Centros Educativos</menu>
                 <files folder="admin">
                     <filename>controller.php</filename>
                     <filename>centroseducativos.php</filename>
+                    <filename>install.sql</filename>
+                    <filename>uninstall.sql</filename>
                     <folder>views</folder>
 		</files>
 	</administration>

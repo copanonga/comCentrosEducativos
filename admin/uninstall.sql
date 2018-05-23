@@ -1,1 +1,1 @@
-DROP TABLE IF EXISTS `#__CentrosEducativos`;
+DROP TABLE IF EXISTS `#__centroseducativos`;
