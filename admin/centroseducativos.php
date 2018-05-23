@@ -49,7 +49,6 @@ if (JRequest::getVar( 'DEBUG') == "SI") {
  * *********************************************************
  */	
 
-/*
 	$controller = '';
 	switch (JRequest::getVar('task') ) {
 		case 'nuevo':
@@ -64,7 +63,7 @@ if (JRequest::getVar( 'DEBUG') == "SI") {
 			$controller = '';
 			break;
 	}
-      */  
+      
         
 JRequest::setVar( 'controller', $controller );
 if (JRequest::getVar( 'DEBUG') == "SI") {

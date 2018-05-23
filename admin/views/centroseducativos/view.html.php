@@ -10,6 +10,25 @@ class centroseducativosViewcentroseducativos extends JViewLegacy {
             $this->assignRef ( 'cabecera', $cabecera );
 
             $this->crearBarraHerramientas();
+            
+            /*
+		 * invocar al modelo para recuperar los datos
+		 */
+		$items	=& $this->get( 'Data');
+		
+		// control de errores
+		if (count($errors = $this->get('Errors')))
+		{
+			JError::raiseError(500, implode('<br />', $errors));
+			return false;
+		}
+		
+		$this->assignRef('items',		$items);
+
+		if (JRequest::getVar( 'DEBUG') == "SI") {
+			echo "invocando la funcion display del padre para presentar 
+				el layout de Hola04ppalViewHola04ppal <BR>";
+		}
 
             parent::display ( $tpl );
                 

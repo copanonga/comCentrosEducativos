@@ -3,7 +3,7 @@
 	<name>com_centroseducativos</name>
 	<creationDate>2018/05/22</creationDate>
 	<author>Jose</author>
-	<version>0.0.1</version>
+	<version>0.0.2</version>
 	<description>Ejemplo de componente para registro de centros educativos</description>
 
 	<files folder="site">
@@ -32,6 +32,7 @@
                     <filename>install.sql</filename>
                     <filename>uninstall.sql</filename>
                     <folder>views</folder>
+                    <folder>models</folder>
 		</files>
 	</administration>
 </extension>
