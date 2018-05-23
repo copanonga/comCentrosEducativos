@@ -18,6 +18,21 @@ class centroseducativosModelcentroseducativosCRUD extends JModelLegacy
 	}
         
         /**
+	 * Metodo para establecer el identificador 
+	 *
+	 * @param	int centroseducativosModelcentroseducativosCRUD identificador
+	 * no devuelve nada
+	 */
+	function setId($id)
+	{
+		if (JRequest::getVar( 'traza') == "SI")
+			echo "ejecutando la funcion setId con id=$id de centroseducativosModelcentroseducativosCRUD <BR>";
+		// Asigna el id y elimina datos
+		$this->_id		= $id;
+		$this->_data	= null;
+	}
+        
+        /**
 	 * Metodo para obtener los datos
 	 * devuelve un objeto con los datos
 	 */
@@ -37,24 +52,21 @@ class centroseducativosModelcentroseducativosCRUD extends JModelLegacy
 		if (!$this->_data) {
 			$this->_data = new stdClass();
 			$this->_data->id = 0;
-			$this->_data->Saludo = null;
+			$this->_data->nombre = null;
 		}
 		return $this->_data;
 	}
         
-        /**
-	 * Metodo para establecer el identificador 
-	 *
-	 * @param	int centroseducativosCRUD identificador
-	 * no devuelve nada
-	 */
-	function setId($id)
+        function getPatata()
 	{
-		if (JRequest::getVar( 'DEBUG') == "SI")
-			echo "ejecutando la funcion setId con id=$id de centroseducativosModelcentroseducativosCRUD <BR>";
-		// Asigna el id y elimina datos
-		$this->_id	= $id;
-		$this->_data	= null;
+		if (JRequest::getVar( 'DEBUG') == "SI") {
+			echo "------------------------- <br> ";
+			echo "estoy en .....:". __CLASS__." <br>";
+			echo "estoy en .....:". __METHOD__." <br>";
+			echo "------------------------- <br> ";
+		}
+		
+		return "Devolver patata";
 	}
-
+        
 }
