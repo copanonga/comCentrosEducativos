@@ -57,7 +57,7 @@ if (JRequest::getVar( 'DEBUG') == "SI") {
 		case 'cancel':
 		case 'predeterminado':
 		case 'remove':
-			$controller = 'hola04';
+			$controller = 'centroseducativosCRUD';
 			break;
 		default:
 			$controller = '';
