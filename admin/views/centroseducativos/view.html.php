@@ -14,6 +14,11 @@ class centroseducativosViewcentroseducativos extends JViewLegacy {
             /*
 		 * invocar al modelo para recuperar los datos
 		 */
+            
+                $valorTexto =& $this->get( 'Patata');
+                
+                echo "Valor del texto devuelto: " . $valorTexto;
+                
 		$items	=& $this->get( 'Data');
 		
 		// control de errores

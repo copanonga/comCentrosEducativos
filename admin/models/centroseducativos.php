@@ -54,4 +54,17 @@ class centroseducativosModelcentroseducativos extends JModelLegacy
 		//devuelve los datos
 		return $this->_data;
 	}
+        
+        function getPatata()
+	{
+		if (JRequest::getVar( 'DEBUG') == "SI") {
+			echo "------------------------- <br> ";
+			echo "estoy en .....:". __CLASS__." <br>";
+			echo "estoy en .....:". __METHOD__." <br>";
+			echo "------------------------- <br> ";
+		}
+		
+		return "Devolver patata";
+	}
+        
 }
