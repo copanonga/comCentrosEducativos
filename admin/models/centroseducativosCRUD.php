@@ -41,5 +41,20 @@ class centroseducativosModelcentroseducativosCRUD extends JModelLegacy
 		}
 		return $this->_data;
 	}
+        
+        /**
+	 * Metodo para establecer el identificador 
+	 *
+	 * @param	int centroseducativosCRUD identificador
+	 * no devuelve nada
+	 */
+	function setId($id)
+	{
+		if (JRequest::getVar( 'DEBUG') == "SI")
+			echo "ejecutando la funcion setId con id=$id de centroseducativosModelcentroseducativosCRUD <BR>";
+		// Asigna el id y elimina datos
+		$this->_id	= $id;
+		$this->_data	= null;
+	}
 
 }

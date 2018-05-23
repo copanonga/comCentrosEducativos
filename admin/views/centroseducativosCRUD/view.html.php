@@ -28,7 +28,7 @@ class centroseducativosViewcentroseducativos extends JViewLegacy {
 		/*
 		 * Configurar la barra de herramientas
 		*/
-		JToolBarHelper::title(   JText::_( 'Centros educatibos:'. $text )
+		JToolBarHelper::title(   JText::_( 'Centros educativos:'. $text )
 				                          , 'generic.png' );
 		JToolBarHelper::save();
 		if ($isNew)  {
