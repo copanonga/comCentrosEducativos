@@ -11,7 +11,7 @@ if (JRequest::getVar( 'DEBUG') == "SI") {
 
 <h1><?php echo $this->cabecera; ?></h1>
 
-<form action="index.php?option=com_centroseducativos&view=centroseducativosCRUD" 
+<form action="index.php?option=com_centroseducativos&view=centroseducativos" 
       method="post" 
       id="adminForm" 
       name="adminForm">
@@ -37,7 +37,7 @@ if (JRequest::getVar( 'DEBUG') == "SI") {
 			<?php if (!empty($this->items)) : ?>
 				<?php foreach ($this->items as $i => $row) :
 					$link = JRoute::_(
-							'index.php?option=com_centroseducativos&controller=centroseducativosCRUD&task=edit&cid='
+							'index.php?option=com_centroseducativos&controller=centroseducativos&task=edit&cid='
 							          . $row->id);
 					$Marcado = "";
 					if (1 == $row->predeterminado) $Marcado = "checked";
@@ -65,7 +65,7 @@ if (JRequest::getVar( 'DEBUG') == "SI") {
 			<?php endif; ?>
 		</tbody>
 	</table>
-	<input type="hidden" name="controller" value="hola04"/>
+	<input type="hidden" name="controller" value="centroseducativosCRUD"/>
 	<input type="hidden" name="task" value=""/>
 	<input type="hidden" name="boxchecked" value="0"/>
 	<?php echo JHtml::_('form.token'); ?>
