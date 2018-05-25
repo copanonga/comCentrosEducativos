@@ -61,10 +61,11 @@ class centroseducativosControllercentroseducativoscrud extends  JControllerForm
 			echo "estoy en .....:". __METHOD__." <br>";
 			echo "------------------------- <br> ";
 		}
-		$model = $this->getModel('centroseducativosModelcentroseducativoscrud');
+		$model = $this->getModel('centroseducativoscrud');
 		if (JRequest::getVar( 'DEBUG') == "SI")
 			echo "acabo de crear el objeto model <BR>";
-		if ($model->store()) {
+                                        
+                if ($model->store()) {
 			$msg = JText::_( 'Saludo guardado!' );
 		} else {
 			$msg = JText::_( 'Error al guardar el Saludo' );

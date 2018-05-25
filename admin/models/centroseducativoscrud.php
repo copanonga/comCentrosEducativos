@@ -1,5 +1,10 @@
 <?php
-
+/*
+ * ********************************************************* 
+ * package com_hola04
+ * file: admin\models\hola04.php
+ * ********************************************************* 
+ */
 defined( '_JEXEC' ) or die( 'Restricted access' );
 
 class centroseducativosModelcentroseducativoscrud extends JModelLegacy
@@ -64,7 +69,6 @@ class centroseducativosModelcentroseducativoscrud extends JModelLegacy
 	function store()
 	{
             
-            echo "Store";
 		if (JRequest::getVar( 'DEBUG') == "SI")
 			echo "ejecutando la funcion store de centroseducativosModelcentroseducativosCRUD <BR>";
 		
@@ -75,7 +79,12 @@ class centroseducativosModelcentroseducativoscrud extends JModelLegacy
 			echo "------------------------- <br> ";
 		}
 		
-		if (JRequest::getVar( 'Saludo')) {
+		if (JRequest::getVar( 'NombreCentro')) {
+                    
+                    $query = "INSERT INTO #__centroseducativos (nombre) "
+                   . "VALUES (" . "'". JRequest::getVar( 'NombreCentro') ."') ";
+			
+                          /*  
 			if (0 == JRequest::getVar( 'cid')) {
 				if (JRequest::getVar( 'DEBUG') == "SI")
 					echo "ejecutando la funcion store opcion ALTA <BR>";
@@ -92,13 +101,16 @@ class centroseducativosModelcentroseducativoscrud extends JModelLegacy
 							 SET Saludo = '" .JRequest::getVar( 'Saludo') ."' 
 						   WHERE id=".JRequest::getVar( 'cid') ;				
 			}
+                        
+                        */
 			if (JRequest::getVar( 'DEBUG') == "SI")
 				echo "Contenido de la variable query: " . $query . "<br>";
 			$bd = JFactory::getDBO();
 			$bd->setQuery( $query );
 			$saludoBD = $bd->execute();
 			if (JRequest::getVar( 'DEBUG') == "SI")
-				echo "Contenido de la variable saludoBD: " . $saludoBD . "<br>";	
+				echo "Contenido de la variable saludoBD: " . $saludoBD . "<br>";
+                        
 			return $saludoBD;			
 		}	
 		return TRUE;	
