@@ -95,7 +95,12 @@ class centroseducativosControllercentroseducativoscrud extends  JControllerForm
 			echo "estoy en .....:". __METHOD__." <br>";
 			echo "------------------------- <br> ";
 		}
+                
+                
+                
 		$cids = JRequest::getVar( 'cid', array(0), 'post', 'array' );
+                print_r($cids);
+                
 		if (JRequest::getVar( 'DEBUG') == "SI") {
 			echo "count ....: " . count( $cids). " <br> ";
 			if (count( $cids)) {
@@ -108,19 +113,17 @@ class centroseducativosControllercentroseducativoscrud extends  JControllerForm
 		}
 		
 		if (count( $cids)) {
-			$idPre = $this->getIdPredeterminado();
+			
 			if (JRequest::getVar( 'DEBUG') == "SI") 
 				echo "count ....: " . count( $cids). " <br> ";
 			
-			$model = $this->getModel('centroseducativosModelcentroseducativoscrud');
+			$model = $this->getModel('centroseducativoscrud');
 			$z = 0;
 			foreach($cids as $cid) {
-				if ($idPre != $cid ){
-					$aux = $model->delete($cid);
-				} else $aux = JText::_( 'No se puede borrar el saludo predetermnado' );
-				$msg[$z]= $aux;
-				echo "\$id..$cid: $aux  <br>";
-				$z ++;
+                            $aux = $model->delete($cid);
+                            $msg[$z]= $aux;
+                            echo "\$id..$cid: $aux  <br>";
+                            $z ++;
 			}
 			$mensaje = implode("<br>", $msg);
 		}

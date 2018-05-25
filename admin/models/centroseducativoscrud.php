@@ -116,4 +116,32 @@ class centroseducativosModelcentroseducativoscrud extends JModelLegacy
 		return TRUE;	
 	}
         
+        /**
+	 * Method to delete record(s)
+	 *
+	 * @access	public
+	 * @return	boolean	True on success
+	 */
+	function delete($id)
+	{
+		if (JRequest::getVar( 'DEBUG') == "SI")
+			echo "delete: " . $id . "<br>";	
+		#return true;
+		if ($id) {
+			if (JRequest::getVar( 'DEBUG') == "SI")
+				echo "ejecutando la funcion delete <BR>";
+		
+			$query = "DELETE FROM #__centroseducativos "
+					. "WHERE id=".$id ;
+			if (JRequest::getVar( 'DEBUG') == "SI")
+				echo "Contenido de la variable query: " . $query . "<br>";
+			$bd = JFactory::getDBO();
+			$bd->setQuery( $query );
+			if (!$bd->execute()) {
+				return $bd->getErrorMsg();
+			} else 
+				return "Se ha borrado con EXITO el registro de id: " .$id  ;
+		}
+	}
+        
 }
