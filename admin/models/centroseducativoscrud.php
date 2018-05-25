@@ -14,7 +14,7 @@ class centroseducativosModelcentroseducativoscrud extends JModelLegacy
 	 */
 	function __construct()
 	{
-		if (JRequest::getVar( 'DEBUG') == "SI")
+		if (JRequest::getVar( 'DEBUG') == JRequest::getVar( 'ACTIVAR_DEBUG'))
 			echo "ejecutando la funcion __construct de centroseducativosModelcentroseducativosCRUD <BR>";
 		parent::__construct();
 
@@ -30,7 +30,7 @@ class centroseducativosModelcentroseducativoscrud extends JModelLegacy
 	 */
 	function setId($id)
 	{
-		if (JRequest::getVar( 'traza') == "SI")
+		if (JRequest::getVar( 'DEBUG') == JRequest::getVar( 'ACTIVAR_DEBUG'))
 			echo "ejecutando la funcion setId con id=$id de centroseducativosModelcentroseducativosCRUD <BR>";
 		// Asigna el id y elimina datos
 		$this->_id		= $id;
@@ -43,13 +43,13 @@ class centroseducativosModelcentroseducativoscrud extends JModelLegacy
 	 */
 	function &getData()
 	{
-		if (JRequest::getVar( 'DEBUG') == "SI")
+		if (JRequest::getVar( 'DEBUG') == JRequest::getVar( 'ACTIVAR_DEBUG'))
 			echo "ejecutando la funcion getdata de centroseducativosModelcentroseducativosCRUD <BR>";
 		// carga los datos
 		if (empty( $this->_data )) {
 			$query = ' SELECT * FROM #__centroseducativos '.
 					'  WHERE id = '.$this->_id;
-			if (JRequest::getVar( 'traza') == "SI")
+			if (JRequest::getVar( 'DEBUG') == JRequest::getVar( 'ACTIVAR_DEBUG'))
 				echo "\$query...: $query <BR>";
 			$this->_db->setQuery( $query );
 			$this->_data = $this->_db->loadObject();
@@ -69,10 +69,10 @@ class centroseducativosModelcentroseducativoscrud extends JModelLegacy
 	function store()
 	{
             
-		if (JRequest::getVar( 'DEBUG') == "SI")
+		if (JRequest::getVar( 'DEBUG') == JRequest::getVar( 'ACTIVAR_DEBUG'))
 			echo "ejecutando la funcion store de centroseducativosModelcentroseducativosCRUD <BR>";
 		
-		if (JRequest::getVar( 'DEBUG') == "SI") {
+		if (JRequest::getVar( 'DEBUG') == JRequest::getVar( 'ACTIVAR_DEBUG')) {
 			echo "------------------------- <br> ";
 			echo "NombreCentro ....:". JRequest::getVar( 'NombreCentro') ." <br>";
 			echo "cid... ....:". JRequest::getVar( 'cid') ." <br>";
@@ -81,15 +81,15 @@ class centroseducativosModelcentroseducativoscrud extends JModelLegacy
 		
 		if (JRequest::getVar( 'NombreCentro')) {
                     
-                    if (0 == JRequest::getVar( 'cid')) {
-				if (JRequest::getVar( 'DEBUG') == "SI")
+			if (0 == JRequest::getVar( 'cid')) {
+				if (JRequest::getVar( 'DEBUG') == JRequest::getVar( 'ACTIVAR_DEBUG'))
 					echo "ejecutando la funcion store opcion ALTA <BR>";
 
 				$query = "INSERT INTO #__centroseducativos (nombre) "
                    . "VALUES (" . "'". JRequest::getVar( 'NombreCentro') ."') ";
                                 
 			} else {
-				if (JRequest::getVar( 'DEBUG') == "SI")
+				if (JRequest::getVar( 'DEBUG') == JRequest::getVar( 'ACTIVAR_DEBUG'))
 					echo "ejecutando la funcion store opcion UPDATE <BR>";
 				
                                 $query = "UPDATE #__centroseducativos
@@ -97,12 +97,12 @@ class centroseducativosModelcentroseducativoscrud extends JModelLegacy
 						   WHERE id=".JRequest::getVar( 'cid') ;				
 			}
                         
-			if (JRequest::getVar( 'DEBUG') == "SI")
+			if (JRequest::getVar( 'DEBUG') == JRequest::getVar( 'ACTIVAR_DEBUG'))
 				echo "Contenido de la variable query: " . $query . "<br>";
 			$bd = JFactory::getDBO();
 			$bd->setQuery( $query );
 			$saludoBD = $bd->execute();
-			if (JRequest::getVar( 'DEBUG') == "SI")
+			if (JRequest::getVar( 'DEBUG') == JRequest::getVar( 'ACTIVAR_DEBUG'))
 				echo "Contenido de la variable saludoBD: " . $saludoBD . "<br>";
                         
 			return $saludoBD;			

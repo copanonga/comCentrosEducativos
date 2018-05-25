@@ -2,7 +2,7 @@
 
 defined('_JEXEC') or die('Restricted access');
 
-if (JRequest::getVar( 'DEBUG') == "SI") {
+if (JRequest::getVar( 'DEBUG') == JRequest::getVar( 'ACTIVAR_DEBUG')) {
 	echo "------------------------- <br> ";
 	echo "estoy en .....:form.php   <br> "; 
 	echo "------------------------- <br> ";
@@ -25,7 +25,7 @@ if (JRequest::getVar( 'DEBUG') == "SI") {
 				</label>
 			</td>
 			<td>
-				<input class="text_area" type="text" name="Nombre" 
+				<input class="text_area" type="text" name="NombreCentro" 
 				       id="NombreCentro" size="80" maxlength="250" 
 				       value="<?php echo $this->item->nombre;?>" />
 			</td>

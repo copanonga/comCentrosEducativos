@@ -10,7 +10,7 @@ class centroseducativosControllercentroseducativoscrud extends  JControllerForm
 	 */
 	function __construct()
 	{
-		if (JRequest::getVar( 'DEBUG') == "SI") {
+		if (JRequest::getVar( 'DEBUG') == JRequest::getVar( 'ACTIVAR_DEBUG')) {
 			echo "------------------------- <br> ";
 			echo "estoy en .....:". __CLASS__." <br>";
 			echo "estoy en .....:". __METHOD__." <br>";
@@ -28,7 +28,7 @@ class centroseducativosControllercentroseducativoscrud extends  JControllerForm
 	 */
 	function edit()
 	{
-		if (JRequest::getVar( 'DEBUG') == "SI") {
+		if (JRequest::getVar( 'DEBUG') == JRequest::getVar( 'ACTIVAR_DEBUG')) {
 			echo "------------------------- <br> ";
 			echo "estoy en .....:". __CLASS__." <br>";
 			echo "estoy en .....:". __METHOD__." <br>";
@@ -40,8 +40,8 @@ class centroseducativosControllercentroseducativoscrud extends  JControllerForm
 		JRequest::setVar('hidemainmenu', 1);
                 
                 if($controller = JRequest::getVar('controller')) {
-	$path = JPATH_COMPONENT.DS.'controllers'.DS.$controller.'.php';
-        echo "Path CRUD: " . $path;
+                    $path = JPATH_COMPONENT.DS.'controllers'.DS.$controller.'.php';
+                    echo "Path CRUD: " . $path;
                 }
                 
                 //die("crud");
@@ -55,14 +55,15 @@ class centroseducativosControllercentroseducativoscrud extends  JControllerForm
 	 */
 	function save()
 	{
-		if (JRequest::getVar( 'DEBUG') == "SI") {
+		if (JRequest::getVar( 'DEBUG') == JRequest::getVar( 'ACTIVAR_DEBUG')) {
 			echo "------------------------- <br> ";
 			echo "estoy en .....:". __CLASS__." <br>";
 			echo "estoy en .....:". __METHOD__." <br>";
 			echo "------------------------- <br> ";
 		}
-		$model = $this->getModel('centroseducativoscrud');
-		if (JRequest::getVar( 'DEBUG') == "SI")
+		
+                $model = $this->getModel('centroseducativoscrud');
+		if (JRequest::getVar( 'DEBUG') == JRequest::getVar( 'ACTIVAR_DEBUG'))
 			echo "acabo de crear el objeto model <BR>";
                                         
                 if ($model->store()) {
@@ -70,7 +71,8 @@ class centroseducativosControllercentroseducativoscrud extends  JControllerForm
 		} else {
 			$msg = JText::_( 'Error al guardar el Saludo' );
 		}
-		if (JRequest::getVar( 'DEBUG') == "SI") {
+		
+                if (JRequest::getVar( 'DEBUG') == JRequest::getVar( 'ACTIVAR_DEBUG')) {
 			echo "------------------------- <br> ";
 			echo "\$msg ....:". $msg ." <br>";
 			echo "------------------------- <br> ";
@@ -89,7 +91,7 @@ class centroseducativosControllercentroseducativoscrud extends  JControllerForm
 	 */
 	function remove()
 	{
-		if (JRequest::getVar( 'DEBUG') == "SI") {
+		if (JRequest::getVar( 'DEBUG') == JRequest::getVar( 'ACTIVAR_DEBUG')) {
 			echo "------------------------- <br> ";
 			echo "estoy en .....:". __CLASS__." <br>";
 			echo "estoy en .....:". __METHOD__." <br>";
@@ -101,7 +103,7 @@ class centroseducativosControllercentroseducativoscrud extends  JControllerForm
 		$cids = JRequest::getVar( 'cid', array(0), 'post', 'array' );
                 print_r($cids);
                 
-		if (JRequest::getVar( 'DEBUG') == "SI") {
+		if (JRequest::getVar( 'DEBUG') == JRequest::getVar( 'ACTIVAR_DEBUG')) {
 			echo "count ....: " . count( $cids). " <br> ";
 			if (count( $cids)) {
 				$z = 0;
@@ -114,7 +116,7 @@ class centroseducativosControllercentroseducativoscrud extends  JControllerForm
 		
 		if (count( $cids)) {
 			
-			if (JRequest::getVar( 'DEBUG') == "SI") 
+			if (JRequest::getVar( 'DEBUG') == JRequest::getVar( 'ACTIVAR_DEBUG'))
 				echo "count ....: " . count( $cids). " <br> ";
 			
 			$model = $this->getModel('centroseducativoscrud');
@@ -140,7 +142,7 @@ class centroseducativosControllercentroseducativoscrud extends  JControllerForm
 	 */
 	function cancel()
 	{
-		if (JRequest::getVar( 'DEBUG') == "SI") {
+		if (JRequest::getVar( 'DEBUG') == JRequest::getVar( 'ACTIVAR_DEBUG')) {
 			echo "------------------------- <br> ";
 			echo "estoy en .....:". __CLASS__." <br>";
 			echo "estoy en .....:". __METHOD__." <br>";
@@ -157,7 +159,7 @@ class centroseducativosControllercentroseducativoscrud extends  JControllerForm
 	function predeterminado()
 	{
 		
-		if (JRequest::getVar( 'DEBUG') == "SI") {
+		if (JRequest::getVar( 'DEBUG') == JRequest::getVar( 'ACTIVAR_DEBUG')) {
 			echo "------------------------- <br> ";
 			echo "estoy en .....:". __CLASS__." <br>";
 			echo "estoy en .....:". __METHOD__." <br>";
@@ -202,12 +204,12 @@ class centroseducativosControllercentroseducativoscrud extends  JControllerForm
 		 $query = 'SELECT id 
 		 		     FROM #__TablaHola04 
 		 		    WHERE predeterminado = 1';
-		 if (JRequest::getVar( 'DEBUG') == "SI") 
+		 if (JRequest::getVar( 'DEBUG') == JRequest::getVar( 'ACTIVAR_DEBUG'))
 			echo "Contenido de la variable query: " . $query . "<br>";
 		
 		 $bd->setQuery( $query );
 		 $idPre = $bd->loadResult();
-		 if (JRequest::getVar( 'DEBUG') == "SI") 
+		 if (JRequest::getVar( 'DEBUG') == JRequest::getVar( 'ACTIVAR_DEBUG'))
 			echo "Id del saludo predeterminado: " . $idPre . "<br>";
 		 return $idPre;
 	}

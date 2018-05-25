@@ -1,7 +1,7 @@
 <?php
 defined ( '_JEXEC' ) or die ( 'Acceso restringido' );
 
-if (JRequest::getVar( 'DEBUG') == "SI") {
+if (JRequest::getVar( 'DEBUG') == JRequest::getVar( 'ACTIVAR_DEBUG')) {
 	echo "------------------------- <br> ";
 	echo "estoy en .....:default.php<br> "; 
 	echo "------------------------- <br> ";

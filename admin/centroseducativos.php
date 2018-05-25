@@ -5,6 +5,8 @@ defined ( '_JEXEC' ) or die ( 'Restricted access' );
 if(!defined('DS')) define('DS', DIRECTORY_SEPARATOR);
 
 JRequest::setVar( 'DEBUG', "SI") ;
+JRequest::setVar( 'ACTIVAR_DEBUG', "SI") ;
+//JRequest::setVar( 'ACTIVAR_DEBUG', "NO") ;
 
 /*
  * *********************************************************
@@ -12,7 +14,7 @@ JRequest::setVar( 'DEBUG', "SI") ;
  * *********************************************************
  */
 /*** LEER VARIABLES POR GET ***/
-if (JRequest::getVar( 'DEBUG') == "SI") {
+if (JRequest::getVar( 'DEBUG') == JRequest::getVar( 'ACTIVAR_DEBUG')) {
 	$numeroG = count($_GET);
 	$tagsG = array_keys($_GET);// obtiene los nombres de las varibles
 	$valoresG = array_values($_GET);// obtiene los valores de las varibles
@@ -24,7 +26,7 @@ if (JRequest::getVar( 'DEBUG') == "SI") {
 	}
 }
 /*** LEER VARIABLES POR POST ***/
-if (JRequest::getVar( 'DEBUG') == "SI") {
+if (JRequest::getVar( 'DEBUG') == JRequest::getVar( 'ACTIVAR_DEBUG')) {
 	$numeroP = count($_POST);
 	$tagsP = array_keys($_POST); // obtiene los nombres de las varibles
 	$valoresP = array_values($_POST);// obtiene los valores de las varibles
@@ -66,7 +68,7 @@ if (JRequest::getVar( 'DEBUG') == "SI") {
       
         
 JRequest::setVar( 'controller', $controller );
-if (JRequest::getVar( 'DEBUG') == "SI") {
+if (JRequest::getVar( 'DEBUG') == JRequest::getVar( 'ACTIVAR_DEBUG')) {
 	echo "\$tarea..........:". JRequest::getVar('task')." <br> ";
 	echo "\$controller.....: $controller <br> ";
 }
@@ -93,7 +95,7 @@ $componente = "centroseducativos";
 
 // Create the controller
 $classname	= $componente .'Controller'.$controller;
-if (JRequest::getVar( 'DEBUG') == "SI") {
+if (JRequest::getVar( 'DEBUG') == JRequest::getVar( 'ACTIVAR_DEBUG')) {
 	echo "Contenido de la variable classname: " . $classname . "<br>";
 }
 

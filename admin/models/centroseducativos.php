@@ -14,7 +14,7 @@ class centroseducativosModelcentroseducativos extends JModelLegacy
 	 */
 	function _buildQuery()
 	{
-		if (JRequest::getVar( 'DEBUG') == "SI") {
+		if (JRequest::getVar( 'DEBUG') == JRequest::getVar( 'ACTIVAR_DEBUG')) {
 			echo "------------------------- <br> ";
 			echo "estoy en .....:". __CLASS__." <br>";
 			echo "estoy en .....:". __METHOD__." <br>";
@@ -34,7 +34,7 @@ class centroseducativosModelcentroseducativos extends JModelLegacy
 	 */
 	function getData()
 	{
-		if (JRequest::getVar( 'DEBUG') == "SI") {
+		if (JRequest::getVar( 'DEBUG') == JRequest::getVar( 'ACTIVAR_DEBUG')) {
 			echo "------------------------- <br> ";
 			echo "estoy en .....:". __CLASS__." <br>";
 			echo "estoy en .....:". __METHOD__." <br>";
@@ -57,7 +57,7 @@ class centroseducativosModelcentroseducativos extends JModelLegacy
         
         function getPatata()
 	{
-		if (JRequest::getVar( 'DEBUG') == "SI") {
+		if (JRequest::getVar( 'DEBUG') == JRequest::getVar( 'ACTIVAR_DEBUG')) {
 			echo "------------------------- <br> ";
 			echo "estoy en .....:". __CLASS__." <br>";
 			echo "estoy en .....:". __METHOD__." <br>";
