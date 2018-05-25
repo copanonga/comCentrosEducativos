@@ -81,28 +81,22 @@ class centroseducativosModelcentroseducativoscrud extends JModelLegacy
 		
 		if (JRequest::getVar( 'NombreCentro')) {
                     
-                    $query = "INSERT INTO #__centroseducativos (nombre) "
-                   . "VALUES (" . "'". JRequest::getVar( 'NombreCentro') ."') ";
-			
-                          /*  
-			if (0 == JRequest::getVar( 'cid')) {
+                    if (0 == JRequest::getVar( 'cid')) {
 				if (JRequest::getVar( 'DEBUG') == "SI")
 					echo "ejecutando la funcion store opcion ALTA <BR>";
 
-				$ultId  = $this->maxID();
-				$newId  = $ultId + 1 ;
-					
 				$query = "INSERT INTO #__centroseducativos (nombre) "
                    . "VALUES (" . "'". JRequest::getVar( 'NombreCentro') ."') ";
+                                
 			} else {
 				if (JRequest::getVar( 'DEBUG') == "SI")
 					echo "ejecutando la funcion store opcion UPDATE <BR>";
-				$query = "UPDATE #__TablaHola04
-							 SET Saludo = '" .JRequest::getVar( 'Saludo') ."' 
+				
+                                $query = "UPDATE #__centroseducativos
+							 SET nombre = '" .JRequest::getVar( 'NombreCentro') ."' 
 						   WHERE id=".JRequest::getVar( 'cid') ;				
 			}
                         
-                        */
 			if (JRequest::getVar( 'DEBUG') == "SI")
 				echo "Contenido de la variable query: " . $query . "<br>";
 			$bd = JFactory::getDBO();
