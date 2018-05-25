@@ -2,7 +2,7 @@
 
 defined ( '_JEXEC' ) or die ( 'Acceso restringido' );
 
-class centroseducativosViewcentroseducativosCRUD extends JViewLegacy {
+class centroseducativosViewcentroseducativoscrud extends JViewLegacy {
     
         function display($tpl = null)
 	{
@@ -17,9 +17,30 @@ class centroseducativosViewcentroseducativosCRUD extends JViewLegacy {
 			echo "------------------------- <br> ";
 		}
                 
-                $valorTexto =& $this->get( 'Patata');
-                
-                echo "Valor del texto devuelto CRUD: " . $valorTexto;
+                /*
+		 * invocar al modelo para recuperar los datos
+		 */
+		$item	=& $this->get('Data');
+		$isNew	= ($item->id < 1);
+		/* 
+		 * cargar texto para el titulo
+		 */
+		if ($isNew) $text = JText::_( ' Nuevo' ) ;
+		   else  $text = JText::_( ' Editar' );
+		/*
+		 * Configurar la barra de herramientas
+		*/
+		JToolBarHelper::title(   JText::_( 'Centros educativos:'. $text )
+				                          , 'generic.png' );
+		JToolBarHelper::save();
+		if ($isNew)  {
+			JToolBarHelper::cancel();
+		} else {
+			// Si estamos editando un saludo le nombramos como CERRAR
+			JToolBarHelper::cancel( 'cancel', 'Cerrar' );
+		}
+
+		$this->assignRef('item', $item);
                 
 		parent::display($tpl);
 		

@@ -2,7 +2,7 @@
 
 defined( '_JEXEC' ) or die( 'Restricted access' );
 
-class centroseducativosModelcentroseducativosCRUD extends JModelLegacy
+class centroseducativosModelcentroseducativoscrud extends JModelLegacy
 {
 	/**
 	 * Constructor que recupera el ID de la cadena de peticion
@@ -57,16 +57,51 @@ class centroseducativosModelcentroseducativosCRUD extends JModelLegacy
 		return $this->_data;
 	}
         
-        function getPatata()
+        /**
+	 * Metodo para almacenar un registro
+	 * devuelve una variable booleana con valor true ha finalizado con exito
+	 */
+	function store()
 	{
+            
+            echo "Store";
+		if (JRequest::getVar( 'DEBUG') == "SI")
+			echo "ejecutando la funcion store de centroseducativosModelcentroseducativosCRUD <BR>";
+		
 		if (JRequest::getVar( 'DEBUG') == "SI") {
 			echo "------------------------- <br> ";
-			echo "estoy en .....:". __CLASS__." <br>";
-			echo "estoy en .....:". __METHOD__." <br>";
+			echo "NombreCentro ....:". JRequest::getVar( 'NombreCentro') ." <br>";
+			echo "cid... ....:". JRequest::getVar( 'cid') ." <br>";
 			echo "------------------------- <br> ";
 		}
 		
-		return "Devolver patata";
+		if (JRequest::getVar( 'Saludo')) {
+			if (0 == JRequest::getVar( 'cid')) {
+				if (JRequest::getVar( 'DEBUG') == "SI")
+					echo "ejecutando la funcion store opcion ALTA <BR>";
+
+				$ultId  = $this->maxID();
+				$newId  = $ultId + 1 ;
+					
+				$query = "INSERT INTO #__centroseducativos (nombre) "
+                   . "VALUES (" . "'". JRequest::getVar( 'NombreCentro') ."') ";
+			} else {
+				if (JRequest::getVar( 'DEBUG') == "SI")
+					echo "ejecutando la funcion store opcion UPDATE <BR>";
+				$query = "UPDATE #__TablaHola04
+							 SET Saludo = '" .JRequest::getVar( 'Saludo') ."' 
+						   WHERE id=".JRequest::getVar( 'cid') ;				
+			}
+			if (JRequest::getVar( 'DEBUG') == "SI")
+				echo "Contenido de la variable query: " . $query . "<br>";
+			$bd = JFactory::getDBO();
+			$bd->setQuery( $query );
+			$saludoBD = $bd->execute();
+			if (JRequest::getVar( 'DEBUG') == "SI")
+				echo "Contenido de la variable saludoBD: " . $saludoBD . "<br>";	
+			return $saludoBD;			
+		}	
+		return TRUE;	
 	}
         
 }

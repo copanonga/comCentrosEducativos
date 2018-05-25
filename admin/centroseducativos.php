@@ -57,7 +57,7 @@ if (JRequest::getVar( 'DEBUG') == "SI") {
 		case 'cancel':
 		case 'predeterminado':
 		case 'remove':
-			$controller = 'centroseducativosCRUD';
+			$controller = 'centroseducativoscrud';
 			break;
 		default:
 			$controller = '';
@@ -75,6 +75,7 @@ require_once( JPATH_COMPONENT.DS.'controller.php' );
 
 if($controller = JRequest::getVar('controller')) {
 	$path = JPATH_COMPONENT.DS.'controllers'.DS.$controller.'.php';
+        echo "Path: " . $path;
 	if (file_exists($path)) {
 		require_once $path;
 	} else {
@@ -92,7 +93,7 @@ $componente = "centroseducativos";
 
 // Create the controller
 $classname	= $componente .'Controller'.$controller;
-if (JRequest::getVar( 'traza') == "SI") {
+if (JRequest::getVar( 'DEBUG') == "SI") {
 	echo "Contenido de la variable classname: " . $classname . "<br>";
 }
 
