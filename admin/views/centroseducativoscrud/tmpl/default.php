@@ -1,11 +1,20 @@
 <?php
+
+/*
+ *
+ *  Vista tmpl
+ *  
+ *  
+ */
+
 defined ( '_JEXEC' ) or die ( 'Acceso restringido' );
 
 if (JRequest::getVar( 'DEBUG') == JRequest::getVar( 'ACTIVAR_DEBUG')) {
-	echo "------------------------- <br> ";
-	echo "estoy en .....:default.php<br> "; 
-	echo "------------------------- <br> ";
-	}
+    echo "------------------------- <br> ";
+    echo "Clase: ". $clase ." <br>";
+    echo "Método: ". $metodo ." <br>";
+    echo "------------------------- <br> ";
+}
         
 ?>
 
