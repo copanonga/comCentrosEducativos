@@ -152,12 +152,12 @@ class centroseducativosModelcentroseducativoscrud extends JModelLegacy
 
     function mostrarZona($clase,$metodo){
 
-    if (JRequest::getVar( 'DEBUG') == JRequest::getVar( 'ACTIVAR_DEBUG')) {
+        if (JRequest::getVar( 'DEBUG') == JRequest::getVar( 'ACTIVAR_DEBUG')) {
             echo "------------------------- <br> ";
             echo "Clase: ". $clase ." <br>";
             echo "Método: ". $metodo ." <br>";
             echo "------------------------- <br> ";
-    }
+        }
 
     }
 }
