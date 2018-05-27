@@ -23,7 +23,19 @@ class centroseducativosControllercentroseducativoscrud extends  JControllerForm
         $this->registerTask( 'nuevo' , 'edit' );
         
     }
-       
+    
+    function showcenter()
+    {
+        
+        $this->mostrarZona(__CLASS__,__METHOD__);
+        
+        JRequest::setVar( 'view', 'centroseducativoscrud' );
+        JRequest::setVar( 'layout', 'detailcenter'  );
+        //JRequest::setVar('hidemainmenu', 1);
+
+        parent::display();
+    }
+    
     function edit()
     {
         

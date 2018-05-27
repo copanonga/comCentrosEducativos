@@ -5,8 +5,8 @@ defined ( '_JEXEC' ) or die ( 'Acceso restringido' );
 if(!defined('DS')) define('DS', DIRECTORY_SEPARATOR);
 
 JRequest::setVar( 'DEBUG', "SI") ;
-JRequest::setVar( 'ACTIVAR_DEBUG', "SI") ;
-//JRequest::setVar( 'ACTIVAR_DEBUG', "NO") ;
+//JRequest::setVar( 'ACTIVAR_DEBUG', "SI") ;
+JRequest::setVar( 'ACTIVAR_DEBUG', "NO") ;
 
 if (JRequest::getVar( 'DEBUG') == JRequest::getVar( 'ACTIVAR_DEBUG')) {
     
@@ -51,6 +51,7 @@ if (JRequest::getVar( 'DEBUG') == JRequest::getVar( 'ACTIVAR_DEBUG')) {
 $controller = '';
 switch (JRequest::getVar('task') ) {
     case 'nuevo':
+    case 'showcenter':
     case 'save':
     case 'edit':
     case 'cancel':

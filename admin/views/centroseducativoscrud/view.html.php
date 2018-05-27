@@ -18,11 +18,11 @@ class centroseducativosViewcentroseducativoscrud extends JViewLegacy {
         $this->assignRef ( 'cabecera', $cabecera );
 
         if (JRequest::getVar( 'DEBUG') == JRequest::getVar( 'ACTIVAR_DEBUG')) {
-    echo "------------------------- <br> ";
-    echo "Clase: ". __CLASS__ ." <br>";
-    echo "Método: ". __METHOD__ ." <br>";
-    echo "------------------------- <br> ";
-}
+            echo "------------------------- <br> ";
+            echo "Clase: ". __CLASS__ ." <br>";
+            echo "Método: ". __METHOD__ ." <br>";
+            echo "------------------------- <br> ";
+        }
 
         /*
          * invocar al modelo para recuperar los datos

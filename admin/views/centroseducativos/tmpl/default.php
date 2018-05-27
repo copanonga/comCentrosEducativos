@@ -39,6 +39,9 @@ if (JRequest::getVar( 'DEBUG') == JRequest::getVar( 'ACTIVAR_DEBUG')) {
                 <th width="75%">
                         <?php echo JText::_( 'Nombre del centro' ); ?>
                 </th>
+                <th width="75%">
+                        <?php echo JText::_( 'Ver ficha' ); ?>
+                </th>
             </tr>
         </thead>
 
@@ -46,10 +49,16 @@ if (JRequest::getVar( 'DEBUG') == JRequest::getVar( 'ACTIVAR_DEBUG')) {
             <?php if (!empty($this->items)) : ?>
                 <?php foreach ($this->items as $i => $row) :
                     $link = JRoute::_(
-                                    'index.php?option=com_centroseducativos&controller=centroseducativosCRUD&task=edit&cid='
+                                    'index.php?option=com_centroseducativos&controller=centroseducativoscrud&task=edit&cid='
                                               . $row->id);
+
+                    $linkDetail = JRoute::_(
+                                    'index.php?option=com_centroseducativos&controller=centroseducativoscrud&task=showcenter&cid='
+                                              . $row->id);
+                    
                     $Marcado = "";
                     if (1 == $row->predeterminado) $Marcado = "checked";
+                    
                     ?>
                     <tr>
                         <td align="center">
@@ -68,7 +77,13 @@ if (JRequest::getVar( 'DEBUG') == JRequest::getVar( 'ACTIVAR_DEBUG')) {
                                    title="<?php echo JText::_('Nombre del centro'); ?>">
                                         <?php echo $row->nombre; ?>
                                 </a>
-                        </td>					
+                        </td>
+                        <td>
+                                <a href="<?php echo $linkDetail; ?>" 
+                                   title="<?php echo JText::_('Nombre del centro'); ?>">
+                                        <?php echo $row->nombre; ?>
+                                </a>
+                        </td>
                     </tr>
                 <?php endforeach; ?>
             <?php endif; ?>
