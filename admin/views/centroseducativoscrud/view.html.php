@@ -23,29 +23,55 @@ class centroseducativosViewcentroseducativoscrud extends JViewLegacy {
             echo "Método: ". __METHOD__ ." <br>";
             echo "------------------------- <br> ";
         }
+        
+        $numeroG = count($_GET);
+        $tagsG = array_keys($_GET);
+        $valoresG = array_values($_GET);
+
+        $isShowCenter = 0;
+        for($i=0 ; $i<$numeroG ; $i++){
+
+           if ($valoresG[$i] == "showcenter") {
+
+               $isShowCenter = 1;
+           }
+        }
 
         /*
          * invocar al modelo para recuperar los datos
          */
         $item	=& $this->get('Data');
         $isNew	= ($item->id < 1);
-        /* 
-         * cargar texto para el titulo
-         */
-        if ($isNew) $text = JText::_( ' Nuevo' ) ;
-           else  $text = JText::_( ' Editar' );
-        /*
-         * Configurar la barra de herramientas
-        */
-        JToolBarHelper::title(   JText::_( 'Centros educativos:'. $text ) , 'generic.png' );
-        JToolBarHelper::save();
+        
+        
+        if ($isShowCenter == 0) {
+            echo "Mostrar texto título";
+            /* 
+            * cargar texto para el titulo
+            */
+           if ($isNew) $text = JText::_( ' Nuevo' ) ;
+              else  $text = JText::_( ' Editar' );
+           /*
+            * Configurar la barra de herramientas
+           */
+           JToolBarHelper::title(   JText::_( 'Centros educativos:'. $text ) , 'generic.png' );
+           JToolBarHelper::save();
 
-        if ($isNew)  {
-                JToolBarHelper::cancel();
+           if ($isNew)  {
+                   JToolBarHelper::cancel();
+           } else {
+                   // Si estamos editando le nombramos como CERRAR
+                   JToolBarHelper::cancel( 'cancel', 'Cerrar' );
+           }
+        
         } else {
-                // Si estamos editando le nombramos como CERRAR
-                JToolBarHelper::cancel( 'cancel', 'Cerrar' );
+            
+            JToolBarHelper::title(   JText::_( 'Centros educativos: ficha' ) , 'generic.png' );
+            JToolBarHelper::back();   
+            
         }
+        
+        
 
         $this->assignRef('item', $item);
 
