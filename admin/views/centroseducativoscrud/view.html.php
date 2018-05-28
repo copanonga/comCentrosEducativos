@@ -45,7 +45,7 @@ class centroseducativosViewcentroseducativoscrud extends JViewLegacy {
         
         
         if ($isShowCenter == 0) {
-            echo "Mostrar texto título";
+            
             /* 
             * cargar texto para el titulo
             */

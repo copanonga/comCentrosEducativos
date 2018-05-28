@@ -53,7 +53,7 @@ if (JRequest::getVar( 'DEBUG') == JRequest::getVar( 'ACTIVAR_DEBUG')) {
                                               . $row->id);
 
                     $linkDetail = JRoute::_(
-                                    'index.php?option=com_centroseducativos&controller=centroseducativoscrud&task=showcenter&cid='
+                                    'index.php?option=com_centroseducativos&controller=detallecentroeducativo&task=showcenter&cid='
                                               . $row->id);
                     
                     $Marcado = "";

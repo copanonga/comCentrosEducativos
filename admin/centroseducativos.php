@@ -50,15 +50,18 @@ if (JRequest::getVar( 'DEBUG') == JRequest::getVar( 'ACTIVAR_DEBUG')) {
 //Asignar controlador
 $controller = '';
 switch (JRequest::getVar('task') ) {
-    case 'nuevo':
     case 'showcenter':
+        $controller = 'detallecentroeducativo';
+        break;
+    case 'nuevo':
     case 'save':
     case 'edit':
     case 'cancel':
     case 'predeterminado':
     case 'remove':
-            $controller = 'centroseducativoscrud';
-            break;
+        $controller = 'centroseducativoscrud';
+        break;
+    
     default:
             $controller = '';
             break;
